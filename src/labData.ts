@@ -95,9 +95,9 @@ export const LAB_DATA: LabData = {
     }
   ],
   contact: {
-    address: "123 Science Road, Engineering Building #405, Innovation City",
-    email: "contact@epasa-lab.org",
-    phone: "+82-2-1234-5678",
-    mapUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3162.2848242337813!2d126.9703453!3d37.5666103!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357ca2f3323a16af%3A0x83130309331f08d2!2sSeoul%20City%20Hall!5e0!3m2!1sen!2skr!4v1709420000000!5m2!1sen!2skr"
+    address: "37 Nakdong-daero 550beon-gil, Saha-gu, Busan, 49315, Republic of Korea #405, 공대5호관",
+    email: "-",
+    phone: "+82",
+    mapUrl: "https://www.google.com/maps/dir/Dong-a+University,+Seunghak+Campus,+37+Nakdong-daero+550beon-gil,+Saha-gu,+Busan/%EB%8F%99%EC%95%84%EB%8C%80%ED%95%99%EA%B5%90+%EA%B3%B5%EA%B3%BC%EB%8C%80%ED%95%993%ED%98%B8%EA%B4%80+Busan,+Hadan-dong/data=!4m13!4m12!1m5!1m1!1s0x3568c25d14c1764f:0x9f345b4d72a391e7!2m2!1d128.9684964!2d35.116637!1m5!1m1!1s0x3568c26830c0733f:0xb67c06f6a310e05!2m2!1d128.9677089!2d35.1169766?hl=en&entry=ttu&g_ep=EgoyMDI2MDIyNS4wIKXMDSoASAFQAw%3D%3Dr"
   }
 };
