@@ -1,7 +1,0 @@
-{
-  "name": "EPASA LAB",
-  "description": "Edge Physical AI System Architecture Laboratory website featuring research, publications, and member profiles.",
-  "requestFramePermissions": [
-    "geolocation"
-  ]
-}
