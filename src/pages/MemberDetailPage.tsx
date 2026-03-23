@@ -131,43 +131,64 @@ export default function MemberDetailPage({ members, publications }: { members: M
               </p>
             </section>
 
-            {/* 🌟 2. 학력 (Education) - labData에 데이터가 있을 때만 렌더링 */}
+            {/* 🌟 2. 학력 (Education) - 세련된 타임라인 양식 */}
             {selectedMember.education && selectedMember.education.length > 0 && (
               <section className="bg-white p-10 rounded-3xl shadow-lg border border-slate-100">
-                <h2 className="text-3xl font-bold text-navy mb-8 flex items-center space-x-3 border-b border-slate-100 pb-5">
+                <h2 className="text-3xl font-bold text-navy mb-10 flex items-center space-x-3 border-b border-slate-100 pb-5">
                   <GraduationCap size={32} className="text-navy-light mr-1" />
                   Education
                 </h2>
-                <ul className="space-y-6">
+                {/* 타임라인 세로선 컨테이너 */}
+                <div className="relative border-l-2 border-slate-200 ml-4 space-y-10">
                   {selectedMember.education.map((edu, index) => (
-                    <li key={index} className="flex items-start">
-                      <span className="w-2 h-2 bg-navy rounded-full mt-2.5 mr-4 flex-shrink-0"></span>
-                      <div>
-                        <p className="font-bold text-slate-900 text-lg">{edu.degree}</p>
-                        <p className="text-base text-slate-600 font-medium">{edu.institution}</p>
-                        <p className="text-sm text-slate-400 mt-1">{edu.period}</p>
-                      </div>
-                    </li>
+                    <div key={index} className="relative pl-8">
+                      {/* 타임라인 동그라미 포인트 */}
+                      <span className="absolute -left-[9px] top-1.5 w-4 h-4 bg-white border-4 border-navy rounded-full shadow-sm"></span>
+                      
+                      {/* 기간, 학위, 학교 정보 */}
+                      <p className="text-sm font-bold text-navy-light mb-1.5 tracking-wide">{edu.period}</p>
+                      <h3 className="text-xl font-bold text-slate-900 mb-1.5">{edu.degree}</h3>
+                      <p className="text-base text-slate-600 font-medium flex items-center">
+                        {edu.institution}
+                      </p>
+                    </div>
                   ))}
-                </ul>
+                </div>
               </section>
             )}
 
-            {/* 🌟 3. 경력 (Experience) - labData에 데이터가 있을 때만 렌더링 */}
-            {selectedMember.experience && selectedMember.experience.length > 0 && (
+            {/* 🌟 3. 경력 (Experience / Career) - 세련된 타임라인 양식 */}
+            {/* labData.ts에서 experience 또는 career 둘 중 하나라도 작성되어 있으면 이 섹션이 표시됩니다. */}
+            {((selectedMember.experience && selectedMember.experience.length > 0) || 
+              (selectedMember.career && selectedMember.career.length > 0)) && (
               <section className="bg-white p-10 rounded-3xl shadow-lg border border-slate-100">
-                <h2 className="text-3xl font-bold text-navy mb-8 flex items-center space-x-3 border-b border-slate-100 pb-5">
+                <h2 className="text-3xl font-bold text-navy mb-10 flex items-center space-x-3 border-b border-slate-100 pb-5">
                   <BriefcaseBusiness size={32} className="text-navy-light mr-1" />
-                  Experience
+                  Career & Experience
                 </h2>
-                <ul className="space-y-3">
-                  {selectedMember.experience.map((exp, index) => (
-                    <li key={index} className="flex items-start text-slate-700 text-lg">
-                      <span className="w-1.5 h-1.5 bg-slate-400 rounded-full mt-2.5 mr-4 flex-shrink-0"></span>
-                      {exp}
-                    </li>
-                  ))}
-                </ul>
+                
+                {/* 타임라인 세로선 컨테이너 */}
+                <div className="relative border-l-2 border-slate-200 ml-4 space-y-10">
+                  
+                  {/* Career 데이터 배열과 Experience 데이터 배열을 하나로 합쳐서 보여줍니다. */}
+                  {[...(selectedMember.career || []), ...(selectedMember.experience || [])].map((item, index) => {
+                    // "2018 - 202X: Senior Researcher" 문자열을 콜론(:) 기준으로 분리하여 디자인을 입힙니다.
+                    const parts = item.split(':');
+                    const period = parts.length > 1 ? parts[0].trim() : '';
+                    const detail = parts.length > 1 ? parts.slice(1).join(':').trim() : item;
+
+                    return (
+                      <div key={index} className="relative pl-8 group">
+                        {/* 타임라인 동그라미 포인트 */}
+                        <span className="absolute -left-[9px] top-1.5 w-4 h-4 bg-white border-4 border-slate-300 rounded-full shadow-sm group-hover:border-navy transition-colors duration-300"></span>
+                        
+                        {/* 기간이 있는 경우 날짜를 강조해서 보여주고, 내용은 굵게 표시합니다. */}
+                        {period && <p className="text-sm font-bold text-navy-light mb-1.5 tracking-wide">{period}</p>}
+                        <h3 className="text-lg font-bold text-slate-800 leading-relaxed">{detail}</h3>
+                      </div>
+                    );
+                  })}
+                </div>
               </section>
             )}
 
