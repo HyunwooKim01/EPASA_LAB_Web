@@ -56,6 +56,14 @@ export interface ResearchArea {
   icon: string;
 }
 
+export interface ResearchDetail {
+  topic: string; // 예: Research Topic #1 : Embedded AI
+  subTopics: {
+    title: string; // 예: Physical AI를 위한 임베디드 시스템 연구
+    descriptions: string[]; // 세부 내용들 (글머리 기호)
+  }[];
+}
+
 export interface NewsItem {
   id: string;
   date: string;
@@ -67,6 +75,7 @@ export interface LabData {
   missionStatement: string;
   heroImage: string;
   researchAreas: ResearchArea[];
+  detailedResearch?: ResearchDetail[];
   publications: Publication[];
   members: Member[];
   projects: Project[];
