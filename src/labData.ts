@@ -55,7 +55,8 @@ export const LAB_DATA: LabData = {
       links: {
         scholar: "#",
         linkedin: "#"
-      }
+      },
+      publicationIds: ["p1", "p2"]
     },
     {
       id: "m2",
@@ -63,7 +64,8 @@ export const LAB_DATA: LabData = {
       role: "Ph.D. Student",
       image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&q=80&w=400",
       bio: "Focusing on hardware acceleration for deep learning.",
-      email: "sarah.s@university.edu"
+      email: "sarah.s@university.edu",
+      publicationIds: ["p1"]
     }
   ],
   projects: [
@@ -95,9 +97,9 @@ export const LAB_DATA: LabData = {
     }
   ],
   contact: {
-    address: "37 Nakdong-daero 550beon-gil, Saha-gu, Busan, 49315, Republic of Korea (동아대학교 승학캠퍼스 공대5호관)",
-    email: "-",
-    phone: "+82",
-    mapUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7903.508482333549!2d128.96797075623962!3d35.111865838593395!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3568c25d14c1764f%3A0x9f345b4d72a391e7!2sDong-a%20University%2C%20Seunghak%20Campus!5e0!3m2!1sen!2skr!4v1772512215282!5m2!1sen!2skr"
+    address: "123 Science Road, Engineering Building #405, Innovation City",
+    email: "contact@epasa-lab.org",
+    phone: "+82-2-1234-5678",
+    mapUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3162.2848242337813!2d126.9703453!3d37.5666103!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357ca2f3323a16af%3A0x83130309331f08d2!2sSeoul%20City%20Hall!5e0!3m2!1sen!2skr!4v1709420000000!5m2!1sen!2skr"
   }
 };
