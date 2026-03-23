@@ -12,9 +12,7 @@ import MembersSection from './components/MembersSection';
 import ProjectsSection from './components/ProjectsSection';
 import ContactSection from './components/ContactSection';
 import Footer from './components/Footer';
-
-// 🌟 새로 만든 상세 페이지 컴포넌트를 불러옵니다 (경로는 실제 파일 위치에 맞게 수정하세요)
-import MemberDetailPage from './pages/MemberDetailPage'; 
+import MemberDetailPage from './components/MemberDetailPage'; 
 
 export default function App() {
   return (
