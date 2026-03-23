@@ -26,23 +26,146 @@ export const LAB_DATA: LabData = {
     }
   ],
   publications: [
+    // 🌟 International Journal Papers
     {
-      id: "p1",
-      title: "Efficient Edge Inference via Dynamic Architecture Scaling",
-      authors: "J. Doe, S. Smith, K. Lee",
-      venue: "IEEE Transactions on Computers",
-      year: 2024,
-      link: "#",
-      tags: ["Edge AI", "System Design"]
+      id: "j1",
+      title: "Adaptive Interference Mitigation for Multilevel Memory Devices",
+      authors: "Myeongwoon Jeon, Kyungchul Kim, Sungkyu Chung, Seungjae Chung, Beomju Shin, Jungwoo Lee",
+      venue: "IEICE Transactions Fundamentals of Electronics, Communications and Computer Sciences",
+      year: 2011,
+      tags: ["Journal", "Memory Devices"]
     },
     {
-      id: "p2",
-      title: "Physical-Aware Neural Network Pruning for Robotics",
-      authors: "A. Park, J. Doe",
-      venue: "ICRA 2023",
-      year: 2023,
-      link: "#",
-      tags: ["Robotics", "Optimization"]
+      id: "j2",
+      title: "Bidirectional Limited-Magnitude Error Correction Codes for Flash Memories",
+      authors: "Myeongwoon Jeon, Jungwoo Lee",
+      venue: "IEICE Transactions on Fundamentals of Electronics, Communications and Computer Sciences",
+      year: 2013,
+      tags: ["Journal", "Flash Memory"]
+    },
+
+    // 🌟 International Conferences
+    {
+      id: "c1",
+      title: "SNR Adaptive Limited Constellation Sphere Decoding",
+      authors: "Myeongwoon Jeon, Jungwoo Lee",
+      venue: "IEEE Vehicular Technology Conference (Anchorage, USA)",
+      year: 2009,
+      tags: ["Conference", "Decoding"]
+    },
+    {
+      id: "c2",
+      title: "Interference Compensation Technique for Multilevel Flash Memory",
+      authors: "Myeongwoon Jeon, Kyungchul Kim, Beomju Shin, Jungwoo Lee",
+      venue: "IEEE Midwest Symposium on Circuits and Systems (Seoul, Korea)",
+      year: 2011,
+      tags: ["Conference", "Flash Memory"]
+    },
+    {
+      id: "c3",
+      title: "Limited magnitude error location parity check codes for flash memories",
+      authors: "Myeongwoon Jeon, Kyungchul Kim, Beomju Shin, Jungwoo Lee",
+      venue: "IEEE Midwest Symposium on Circuits and Systems (Boise, USA)",
+      year: 2012,
+      tags: ["Conference", "Flash Memory"]
+    },
+    {
+      id: "c4",
+      title: "Interference reduction modulation based on chirp spread spectrum for capsule endoscopy",
+      authors: "Myeongwoon Jeon, Sungkyoo Chung, Beomju Shin, Jungwoo Lee",
+      venue: "IEEE Workshop on Signal Processing Systems (Quebec, Canada)",
+      year: 2012,
+      tags: ["Conference", "Signal Processing"]
+    },
+    {
+      id: "c5",
+      title: "On codes correcting bidirectional limited-magnitued errors for flash memories",
+      authors: "Myeongwoon Jeon, Jungwoo Lee",
+      venue: "International Symposium on Information Theory and Its Applications (Honolulu, USA)",
+      year: 2012,
+      tags: ["Conference", "Flash Memory"]
+    },
+    {
+      id: "c6",
+      title: "Cell to cell interference mitigation techniques for flash memory",
+      authors: "Myeongwoon Jeon, Jungwoo Lee",
+      venue: "Non-volatile Memories Workshop (San Diego, USA)",
+      year: 2013,
+      tags: ["Conference", "Flash Memory"]
+    },
+
+    // 🌟 US Patents
+    {
+      id: "pat1",
+      title: "CONTROLLER, SEMICONDUCTOR MEMORY SYSTEM AND OPERATING METHOD THEREOF (US 11189350)",
+      authors: "Myeongwoon Jeon",
+      venue: "US Patent",
+      year: 2021,
+      link: "https://patents.google.com/patent/US11189350",
+      tags: ["Patent"]
+    },
+    {
+      id: "pat2",
+      title: "Data storage device and operating method thereof (US 10916301)",
+      authors: "Myeongwoon Jeon",
+      venue: "US Patent",
+      year: 2021,
+      link: "https://patents.google.com/patent/US10916301",
+      tags: ["Patent"]
+    },
+    {
+      id: "pat3",
+      title: "DATA STORAGE DEVICE AND OPERATING METHOD THEREOF INCLUDING READ ERROR CORRECTION (US 10001952)",
+      authors: "Myeongwoon Jeon",
+      venue: "US Patent",
+      year: 2018,
+      link: "https://patents.google.com/patent/US10001952",
+      tags: ["Patent"]
+    },
+    {
+      id: "pat4",
+      title: "DATA STORAGE DEVICE AND OPERATING METHOD THEREOF (US 9741402)",
+      authors: "Myeongwoon Jeon",
+      venue: "US Patent",
+      year: 2017,
+      link: "https://patents.google.com/patent/US9741402",
+      tags: ["Patent"]
+    },
+    {
+      id: "pat5",
+      title: "CONTROLLER, SEMICONDUCTOR MEMORY SYSTEM AND OPERATING METHOD THEREOF (US 9575833)",
+      authors: "Myeongwoon Jeon",
+      venue: "US Patent",
+      year: 2017,
+      link: "https://patents.google.com/patent/US9575833",
+      tags: ["Patent"]
+    },
+    {
+      id: "pat6",
+      title: "DATA ENCODING METHOD FOR COMPRESSING DATA TO BE STORED, DATA STORAGE DEVICE WITH DATA ENCODER, AND OPERATING METHOD OF DATA STORAGE DEVICE (US 9473171)",
+      authors: "Myeongwoon Jeon",
+      venue: "US Patent",
+      year: 2016,
+      link: "https://patents.google.com/patent/US9473171",
+      tags: ["Patent"]
+    },
+    {
+      id: "pat7",
+      title: "Data storage device and operating method thereof (US 9570189B1)",
+      authors: "Jae Yoon Lee, Hyung Min Lee, Myeong Woon Jeon",
+      venue: "US Patent",
+      year: 2017,
+      link: "https://patents.google.com/patent/US9570189B1",
+      tags: ["Patent"]
+    },
+    {
+      id: "pat8",
+      title: "Operating method of memory system (US 10623025)",
+      authors: "Hyung Min Lee, Jae Yoon Lee, Myeong Woon Jeon",
+      venue: "US Patent",
+      year: 2020,
+      link: "https://patents.google.com/patent/US10623025",
+      tags: ["Patent"]
     }
   ],
   members: [
@@ -52,12 +175,16 @@ export const LAB_DATA: LabData = {
       role: "Principal Investigator",
       image: "images/Professer_Jeon.png",
       bio: "Assistant Professor of Department of Computer Engineering/AI, Dong-A Univ.",
-      email: "john.doe@university.edu",
+      email: "mwjeon@dau.ac.kr",
       links: {
         scholar: "#",
         linkedin: "#"
       },
-      publicationIds: ["p1", "p2"],
+      publicationIds: [
+        "j1", "j2", 
+        "c1", "c2", "c3", "c4", "c5", "c6", 
+        "pat1", "pat2", "pat3", "pat4", "pat5", "pat6", "pat7", "pat8"
+      ],
       // 상세 정보
       education: [
         {
@@ -118,7 +245,7 @@ export const LAB_DATA: LabData = {
       role: "Undergraduate Resercher",
       image: "images/student.png",
       bio: "3rd-year, AI. Dong-A Univ.",
-      email: ".",
+      email: "a01042920043@gmail.com",
       publicationIds: ["p1"]
     },
     {
