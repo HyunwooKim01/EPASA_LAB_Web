@@ -1,7 +1,7 @@
 import React from 'react';
 import { useParams, useNavigate, Navigate } from 'react-router-dom';
 import { ArrowLeft, Mail, GraduationCap, Linkedin, Github, ExternalLink } from 'lucide-react';
-import { Member, Publication } from '../types/lab'; // 타입 경로 확인 필요
+import { Member, Publication } from './types/lab'; // 타입 경로 확인 필요
 
 export default function MemberDetailPage({ members, publications }: { members: Member[], publications: Publication[] }) {
   const { id } = useParams<{ id: string }>(); // URL에서 id 추출
