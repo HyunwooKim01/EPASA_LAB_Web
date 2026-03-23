@@ -1,6 +1,6 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { Calendar } from 'lucide-react';
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom'; // 🌟 Link 추가
+import { Calendar, ArrowRight } from 'lucide-react'; // 🌟 ArrowRight 아이콘 추가
 import { LAB_DATA } from './labData';
 
 import Navbar from './components/Navbar';
@@ -11,7 +11,6 @@ import ProjectsSection from './components/ProjectsSection';
 import ContactSection from './components/ContactSection';
 import Footer from './components/Footer';
 
-// 멤버 페이지들
 import MembersHubPage from './pages/MembersHubPage'; 
 import MemberDetailPage from './pages/MemberDetailPage'; 
 
@@ -21,19 +20,21 @@ export default function App() {
       <div className="min-h-screen bg-slate-50 flex flex-col">
         <Navbar />
         
-        {/* 메인 콘텐츠 영역이 화면을 채우도록 flex-grow 추가 */}
         <main className="flex-grow">
           <Routes>
-            {/* 1. Home 페이지 (대문 사진 + 뉴스만 남김) */}
+            {/* 🌟 1. Home 페이지 (랜딩 페이지 역할) */}
             <Route 
               path="/" 
               element={
-                <>
+                <div className="flex flex-col">
+                  {/* 대문 이미지 */}
                   <Hero data={LAB_DATA} />
-                  <section className="py-12 bg-white border-b border-slate-100">
+                  
+                  {/* 최신 뉴스 */}
+                  <section className="py-8 bg-white border-b border-slate-100 shadow-sm relative z-10">
                     <div className="max-w-7xl mx-auto px-6">
-                      <div className="flex items-center space-x-4 overflow-x-auto pb-4 scrollbar-hide">
-                        <div className="flex-shrink-0 flex items-center space-x-2 px-4 py-2 bg-navy/5 text-navy rounded-full font-bold text-sm">
+                      <div className="flex items-center space-x-4 overflow-x-auto pb-2 scrollbar-hide">
+                        <div className="flex-shrink-0 flex items-center space-x-2 px-4 py-1.5 bg-navy/5 text-navy rounded-full font-bold text-sm">
                           <Calendar size={16} />
                           <span>LATEST NEWS</span>
                         </div>
@@ -47,63 +48,77 @@ export default function App() {
                       </div>
                     </div>
                   </section>
-                </>
-              } 
-            />
 
-            {/* 2. Research 페이지 */}
-            <Route 
-              path="/research" 
-              element={
-                <div className="pt-24 pb-12">
+                  {/* 🌟 간단한 랩실 소개 (Mission Statement) */}
+                  <section className="py-24 bg-slate-50">
+                    <div className="max-w-4xl mx-auto px-6 text-center">
+                      <h2 className="text-3xl md:text-4xl font-bold text-navy mb-6">About EPASA LAB</h2>
+                      <div className="w-20 h-1 bg-navy mx-auto mb-8" />
+                      <p className="text-xl text-slate-600 leading-relaxed font-light">
+                        {LAB_DATA.missionStatement}
+                      </p>
+                    </div>
+                  </section>
+
+                  {/* 🌟 핵심 연구 분야 미리보기 */}
                   <ResearchSection areas={LAB_DATA.researchAreas} />
+
+                  {/* 🌟 다른 페이지로 유도하는 퀵 링크 카드 */}
+                  <section className="py-24 bg-white border-t border-slate-100">
+                    <div className="max-w-7xl mx-auto px-6">
+                      <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                        
+                        {/* Publications Link */}
+                        <Link to="/publications" className="group p-8 bg-slate-50 rounded-3xl border border-slate-100 hover:border-navy/20 hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+                          <h3 className="text-2xl font-bold text-navy mb-4 group-hover:text-navy-light transition-colors">Publications</h3>
+                          <p className="text-slate-600 mb-8 leading-relaxed">Discover our latest research papers, journals, and contributions to the field of Edge AI.</p>
+                          <div className="flex items-center text-navy font-semibold">
+                            Read More <ArrowRight size={18} className="ml-2 group-hover:translate-x-2 transition-transform" />
+                          </div>
+                        </Link>
+
+                        {/* Members Link */}
+                        <Link to="/members" className="group p-8 bg-slate-50 rounded-3xl border border-slate-100 hover:border-navy/20 hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+                          <h3 className="text-2xl font-bold text-navy mb-4 group-hover:text-navy-light transition-colors">Our Team</h3>
+                          <p className="text-slate-600 mb-8 leading-relaxed">Meet the dedicated researchers, students, and alumni driving our innovative projects.</p>
+                          <div className="flex items-center text-navy font-semibold">
+                            Meet the Team <ArrowRight size={18} className="ml-2 group-hover:translate-x-2 transition-transform" />
+                          </div>
+                        </Link>
+
+                        {/* Projects Link */}
+                        <Link to="/projects" className="group p-8 bg-slate-50 rounded-3xl border border-slate-100 hover:border-navy/20 hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+                          <h3 className="text-2xl font-bold text-navy mb-4 group-hover:text-navy-light transition-colors">Projects</h3>
+                          <p className="text-slate-600 mb-8 leading-relaxed">Explore the ongoing and completed research projects happening at EPASA LAB.</p>
+                          <div className="flex items-center text-navy font-semibold">
+                            Explore Projects <ArrowRight size={18} className="ml-2 group-hover:translate-x-2 transition-transform" />
+                          </div>
+                        </Link>
+
+                      </div>
+                    </div>
+                  </section>
                 </div>
               } 
             />
+
+            {/* 2. Research 페이지 (상세) */}
+            <Route path="/research" element={<div className="pt-24 pb-12"><ResearchSection areas={LAB_DATA.researchAreas} /></div>} />
 
             {/* 3. Publications 페이지 */}
-            <Route 
-              path="/publications" 
-              element={
-                <div className="pt-24 pb-12">
-                  <PublicationsSection publications={LAB_DATA.publications} />
-                </div>
-              } 
-            />
+            <Route path="/publications" element={<div className="pt-24 pb-12"><PublicationsSection publications={LAB_DATA.publications} /></div>} />
 
             {/* 4. Members 허브 페이지 */}
-            <Route 
-              path="/members" 
-              element={<MembersHubPage members={LAB_DATA.members} />} 
-            />
+            <Route path="/members" element={<MembersHubPage members={LAB_DATA.members} />} />
 
             {/* 5. Member 상세 페이지 */}
-            <Route 
-              path="/members/:id" 
-              element={
-                <MemberDetailPage members={LAB_DATA.members} publications={LAB_DATA.publications} />
-              } 
-            />
+            <Route path="/members/:id" element={<MemberDetailPage members={LAB_DATA.members} publications={LAB_DATA.publications} />} />
 
             {/* 6. Projects 페이지 */}
-            <Route 
-              path="/projects" 
-              element={
-                <div className="pt-24 pb-12">
-                  <ProjectsSection projects={LAB_DATA.projects} />
-                </div>
-              } 
-            />
+            <Route path="/projects" element={<div className="pt-24 pb-12"><ProjectsSection projects={LAB_DATA.projects} /></div>} />
 
             {/* 7. Contact 페이지 */}
-            <Route 
-              path="/contact" 
-              element={
-                <div className="pt-24 pb-12">
-                  <ContactSection data={LAB_DATA} />
-                </div>
-              } 
-            />
+            <Route path="/contact" element={<div className="pt-24 pb-12"><ContactSection data={LAB_DATA} /></div>} />
           </Routes>
         </main>
 
