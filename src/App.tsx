@@ -1,8 +1,7 @@
-// App.tsx
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { Calendar } from 'lucide-react';
-import { LAB_DATA } from './labData'; // 실제 데이터가 있는 곳 경로에 맞게 수정하세요.
+import { LAB_DATA } from './labData';
 
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
@@ -12,58 +11,97 @@ import ProjectsSection from './components/ProjectsSection';
 import ContactSection from './components/ContactSection';
 import Footer from './components/Footer';
 
-// 페이지 컴포넌트 임포트
-import MemberDetailPage from './components/MemberDetailPage'; 
-// 🌟 멤버 허브 페이지를 불러옵니다. (기존 MembersPage.tsx 파일 이름을 변경해서 사용합니다.)
-import MembersHubPage from './components/MembersHubPage'; 
+// 멤버 페이지들
+import MembersHubPage from './pages/MembersHubPage'; 
+import MemberDetailPage from './pages/MemberDetailPage'; 
 
 export default function App() {
   return (
     <Router>
-      <div className="min-h-screen bg-slate-50">
+      <div className="min-h-screen bg-slate-50 flex flex-col">
         <Navbar />
         
-        <main>
+        {/* 메인 콘텐츠 영역이 화면을 채우도록 flex-grow 추가 */}
+        <main className="flex-grow">
           <Routes>
-            {/* 1. 메인 홈 페이지: 기존의 모든 섹션 유지 */}
+            {/* 1. Home 페이지 (대문 사진 + 뉴스만 남김) */}
             <Route 
               path="/" 
               element={
                 <>
                   <Hero data={LAB_DATA} />
-                  
-                  {/* ... (뉴스 영역 생략: 기존 코드 그대로 유지) ... */}
-                  <ResearchSection areas={LAB_DATA.researchAreas} />
-                  <PublicationsSection publications={LAB_DATA.publications} />
-                  
-                  {/* 메인 화면의 팀 소개는 '전체 멤버 보기'로 연결하는 간략한 링크로 대체할 수 있습니다. */}
-                  {/* 여기서는 이전 디자인의 MembersSection을 그대로 보여주거나 생략할 수 있습니다. 생략하는 경우 아래 주석 처리 */}
-                  {/* <MembersSection members={LAB_DATA.members} publications={LAB_DATA.publications} /> */}
-                  
-                  <ProjectsSection projects={LAB_DATA.projects} />
-                  <ContactSection data={LAB_DATA} />
+                  <section className="py-12 bg-white border-b border-slate-100">
+                    <div className="max-w-7xl mx-auto px-6">
+                      <div className="flex items-center space-x-4 overflow-x-auto pb-4 scrollbar-hide">
+                        <div className="flex-shrink-0 flex items-center space-x-2 px-4 py-2 bg-navy/5 text-navy rounded-full font-bold text-sm">
+                          <Calendar size={16} />
+                          <span>LATEST NEWS</span>
+                        </div>
+                        {LAB_DATA.news.map(item => (
+                          <div key={item.id} className="flex-shrink-0 flex items-center space-x-3 text-sm">
+                            <span className="text-slate-400 font-mono">{item.date}</span>
+                            <span className="text-slate-700 font-medium">{item.content}</span>
+                            <span className="text-slate-200">|</span>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  </section>
                 </>
               } 
             />
 
-            {/* 2. 전체 멤버 허브 페이지 (새로운 양식) */}
+            {/* 2. Research 페이지 */}
             <Route 
-              path="/members" 
+              path="/research" 
               element={
-                <MembersHubPage 
-                  members={LAB_DATA.members} 
-                />
+                <div className="pt-24 pb-12">
+                  <ResearchSection areas={LAB_DATA.researchAreas} />
+                </div>
               } 
             />
 
-            {/* 3. 특정 멤버 상세 페이지 (포트폴리오 양식) */}
+            {/* 3. Publications 페이지 */}
+            <Route 
+              path="/publications" 
+              element={
+                <div className="pt-24 pb-12">
+                  <PublicationsSection publications={LAB_DATA.publications} />
+                </div>
+              } 
+            />
+
+            {/* 4. Members 허브 페이지 */}
+            <Route 
+              path="/members" 
+              element={<MembersHubPage members={LAB_DATA.members} />} 
+            />
+
+            {/* 5. Member 상세 페이지 */}
             <Route 
               path="/members/:id" 
               element={
-                <MemberDetailPage 
-                  members={LAB_DATA.members} 
-                  publications={LAB_DATA.publications} 
-                />
+                <MemberDetailPage members={LAB_DATA.members} publications={LAB_DATA.publications} />
+              } 
+            />
+
+            {/* 6. Projects 페이지 */}
+            <Route 
+              path="/projects" 
+              element={
+                <div className="pt-24 pb-12">
+                  <ProjectsSection projects={LAB_DATA.projects} />
+                </div>
+              } 
+            />
+
+            {/* 7. Contact 페이지 */}
+            <Route 
+              path="/contact" 
+              element={
+                <div className="pt-24 pb-12">
+                  <ContactSection data={LAB_DATA} />
+                </div>
               } 
             />
           </Routes>
