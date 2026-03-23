@@ -98,7 +98,7 @@ export const LAB_DATA: LabData = {
       id: "m2",
       name: "Hyunwoo Kim",
       role: "M.S. Student",
-      image: "images/Msstudent_Kim.png",
+      image: "images/MSstudent_Kim.png",
       bio: "1st year M.S. Student Dong-A Univ.",
       email: "a50935172@gmail.com",
       publicationIds: ["p1"]
