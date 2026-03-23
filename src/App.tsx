@@ -40,7 +40,7 @@ export default function App() {
 
         <ResearchSection areas={LAB_DATA.researchAreas} />
         <PublicationsSection publications={LAB_DATA.publications} />
-        <MembersSection members={LAB_DATA.members} />
+        <MembersSection members={LAB_DATA.members} publications={LAB_DATA.publications} />
         <ProjectsSection projects={LAB_DATA.projects} />
         <ContactSection data={LAB_DATA} />
       </main>
