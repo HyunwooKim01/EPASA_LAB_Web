@@ -48,7 +48,7 @@ export const LAB_DATA: LabData = {
     {
       id: "m1",
       name: "Prof. Myeongwoon Jeon",
-      role: "Dong-A University Assistant Professor",
+      role: "Professor",
       image: "",
       bio: "Assistant Professor of Department of Computer Engineering/AI, Dong-A Univ.",
       email: "john.doe@university.edu",
