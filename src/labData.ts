@@ -2,8 +2,8 @@ import { LabData } from './types/lab';
 
 export const LAB_DATA: LabData = {
   labName: "EPASA LAB",
-  missionStatement: "Edge Physical AI Systems Architecture Lab (EPASA)
-    EPASA Lab은 현실 세계에서 자율적으로 행동하는 Edge & Physical AI 시스템을 연구합니다.",
+  missionStatement: `Edge Physical AI Systems Architecture Lab (EPASA)
+    EPASA Lab은 현실 세계에서 자율적으로 행동하는 Edge & Physical AI 시스템을 연구합니다.`,
   heroImage: "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=2070",
   researchAreas: [
     {
