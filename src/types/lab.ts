@@ -21,6 +21,7 @@ export interface Member {
   // 👇 새로 추가하는 항목들 (?를 붙여서 필수가 아님을 표시)
   education?: Education[];
   experience?: string[];
+  career?: string[];
 }
 
 export interface Publication {
