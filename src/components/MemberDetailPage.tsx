@@ -2,7 +2,8 @@
 import React, { useEffect } from 'react';
 import { useParams, useNavigate, Navigate } from 'react-router-dom';
 import { motion } from 'motion/react';
-import { ArrowLeft, Mail, GraduationCap, Linkedin, Github, ExternalLink, ScrollText } from 'lucide-react';
+// 🌟 새롭게 사용할 아이콘(BriefcaseBusiness)을 추가했습니다.
+import { ArrowLeft, Mail, GraduationCap, Linkedin, Github, ExternalLink, ScrollText, BriefcaseBusiness } from 'lucide-react';
 import { Member, Publication } from '../types/lab';
 
 export default function MemberDetailPage({ members, publications }: { members: Member[], publications: Publication[] }) {
@@ -97,7 +98,7 @@ export default function MemberDetailPage({ members, publications }: { members: M
             </div>
           </div>
 
-          {/* 오른쪽 컬럼: 자기소개 및 논문 실적 */}
+          {/* 오른쪽 컬럼: 자기소개, 학력, 경력, 논문 실적 */}
           <div className="md:col-span-2 space-y-12">
             
             {/* 1. 간단한 자기소개 (About) */}
@@ -111,7 +112,47 @@ export default function MemberDetailPage({ members, publications }: { members: M
               </p>
             </section>
 
-            {/* 2. 논문 실적 (Selected Publications) */}
+            {/* 🌟 2. 학력 (Education) - labData에 데이터가 있을 때만 렌더링 */}
+            {selectedMember.education && selectedMember.education.length > 0 && (
+              <section className="bg-white p-10 rounded-3xl shadow-lg border border-slate-100">
+                <h2 className="text-3xl font-bold text-navy mb-8 flex items-center space-x-3 border-b border-slate-100 pb-5">
+                  <GraduationCap size={32} className="text-navy-light mr-1" />
+                  Education
+                </h2>
+                <ul className="space-y-6">
+                  {selectedMember.education.map((edu, index) => (
+                    <li key={index} className="flex items-start">
+                      <span className="w-2 h-2 bg-navy rounded-full mt-2.5 mr-4 flex-shrink-0"></span>
+                      <div>
+                        <p className="font-bold text-slate-900 text-lg">{edu.degree}</p>
+                        <p className="text-base text-slate-600 font-medium">{edu.institution}</p>
+                        <p className="text-sm text-slate-400 mt-1">{edu.period}</p>
+                      </div>
+                    </li>
+                  ))}
+                </ul>
+              </section>
+            )}
+
+            {/* 🌟 3. 경력 (Experience) - labData에 데이터가 있을 때만 렌더링 */}
+            {selectedMember.experience && selectedMember.experience.length > 0 && (
+              <section className="bg-white p-10 rounded-3xl shadow-lg border border-slate-100">
+                <h2 className="text-3xl font-bold text-navy mb-8 flex items-center space-x-3 border-b border-slate-100 pb-5">
+                  <BriefcaseBusiness size={32} className="text-navy-light mr-1" />
+                  Experience
+                </h2>
+                <ul className="space-y-3">
+                  {selectedMember.experience.map((exp, index) => (
+                    <li key={index} className="flex items-start text-slate-700 text-lg">
+                      <span className="w-1.5 h-1.5 bg-slate-400 rounded-full mt-2.5 mr-4 flex-shrink-0"></span>
+                      {exp}
+                    </li>
+                  ))}
+                </ul>
+              </section>
+            )}
+
+            {/* 4. 논문 실적 (Selected Publications) */}
             <section className="bg-white p-10 rounded-3xl shadow-lg border border-slate-100">
               <h2 className="text-3xl font-bold text-navy mb-8 flex items-center space-x-3 border-b border-slate-100 pb-5">
                 <ScrollText size={32} className="text-navy-light mr-1" />
