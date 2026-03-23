@@ -1,6 +1,6 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom'; // 🌟 Link 추가
-import { Calendar, ArrowRight } from 'lucide-react'; // 🌟 ArrowRight 아이콘 추가
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import { Calendar, ArrowRight } from 'lucide-react';
 import { LAB_DATA } from './labData';
 
 import Navbar from './components/Navbar';
@@ -22,7 +22,7 @@ export default function App() {
         
         <main className="flex-grow">
           <Routes>
-            {/* 🌟 1. Home 페이지 (랜딩 페이지 역할) */}
+            {/* 🌟 1. Home 페이지 (Contact 섹션을 맨 아래에 추가) */}
             <Route 
               path="/" 
               element={
@@ -49,7 +49,7 @@ export default function App() {
                     </div>
                   </section>
 
-                  {/* 🌟 간단한 랩실 소개 (Mission Statement) */}
+                  {/* 간단한 랩실 소개 */}
                   <section className="py-24 bg-slate-50">
                     <div className="max-w-4xl mx-auto px-6 text-center">
                       <h2 className="text-3xl md:text-4xl font-bold text-navy mb-6">About EPASA LAB</h2>
@@ -60,10 +60,10 @@ export default function App() {
                     </div>
                   </section>
 
-                  {/* 🌟 핵심 연구 분야 미리보기 */}
+                  {/* 핵심 연구 분야 미리보기 */}
                   <ResearchSection areas={LAB_DATA.researchAreas} />
 
-                  {/* 🌟 다른 페이지로 유도하는 퀵 링크 카드 */}
+                  {/* 다른 페이지 바로가기 카드 */}
                   <section className="py-24 bg-white border-t border-slate-100">
                     <div className="max-w-7xl mx-auto px-6">
                       <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -98,27 +98,32 @@ export default function App() {
                       </div>
                     </div>
                   </section>
+
+                  {/* 🌟 2. Contact 섹션을 메인 홈 화면의 가장 아래에 위치하게 합니다. */}
+                  {/* 🌟 id="contact"를 추가해서 네비게이션 버튼이 이 위치를 찾아오도록 만듭니다. */}
+                  <div id="contact" className="py-24 bg-slate-100/50 border-t border-slate-200">
+                    <ContactSection data={LAB_DATA} />
+                  </div>
                 </div>
               } 
             />
 
-            {/* 2. Research 페이지 (상세) */}
+            {/* 3. Research 페이지 (상세) */}
             <Route path="/research" element={<div className="pt-24 pb-12"><ResearchSection areas={LAB_DATA.researchAreas} /></div>} />
 
-            {/* 3. Publications 페이지 */}
+            {/* 4. Publications 페이지 */}
             <Route path="/publications" element={<div className="pt-24 pb-12"><PublicationsSection publications={LAB_DATA.publications} /></div>} />
 
-            {/* 4. Members 허브 페이지 */}
+            {/* 5. Members 허브 페이지 */}
             <Route path="/members" element={<MembersHubPage members={LAB_DATA.members} />} />
 
-            {/* 5. Member 상세 페이지 */}
+            {/* 6. Member 상세 페이지 */}
             <Route path="/members/:id" element={<MemberDetailPage members={LAB_DATA.members} publications={LAB_DATA.publications} />} />
 
-            {/* 6. Projects 페이지 */}
+            {/* 7. Projects 페이지 */}
             <Route path="/projects" element={<div className="pt-24 pb-12"><ProjectsSection projects={LAB_DATA.projects} /></div>} />
-
-            {/* 7. Contact 페이지 */}
-            <Route path="/contact" element={<div className="pt-24 pb-12"><ContactSection data={LAB_DATA} /></div>} />
+            
+            {/* 🌟 기존의 독립된 Contact 페이지 라우트는 삭제했습니다. */}
           </Routes>
         </main>
 
