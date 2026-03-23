@@ -77,8 +77,16 @@ export const LAB_DATA: LabData = {
         }
       ],
       career: [
-        "2018 - 202X: Senior Researcher, Tech Company",
-        "2014 - 2018: Postdoctoral Fellow, Research Lab"
+        {
+          title: "Senior Researcher",
+          organization: "Tech Company",
+          period: "2018 - 202X"
+        },
+        {
+          title: "Postdoctoral Fellow",
+          organization: "Research Lab",
+          period: "2014 - 2018"
+        }
       ],
       experience: [
         "202X - Present: Assistant Professor, Dong-A Univ.",
