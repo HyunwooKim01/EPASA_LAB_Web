@@ -52,8 +52,27 @@ export default function MemberDetailPage({ members, publications }: { members: M
         >
           {/* 왼쪽 컬럼: 핵심 프로필 및 소셜 링크 */}
           <div className="md:col-span-1 bg-white p-8 rounded-3xl shadow-lg flex flex-col items-center border border-slate-100">
-            <div className="w-48 h-48 rounded-full overflow-hidden mb-8 shadow-xl border-4 border-white ring-4 ring-slate-100/50">
-              <img src={selectedMember.image} alt={selectedMember.name} className="w-full h-full object-cover" referrerPolicy="no-referrer" />
+            
+            {/* 🌟 수정된 이미지 영역: 경로 자동 보정 및 기본 이미지 방어 코드 추가 */}
+            <div className="w-48 h-48 rounded-full overflow-hidden mb-8 shadow-xl border-4 border-white ring-4 ring-slate-100/50 bg-slate-100 flex items-center justify-center">
+              {selectedMember.image ? (
+                <img 
+                  // http로 시작하거나 /로 시작하면 그대로 쓰고, 아니면 강제로 앞에 /를 붙여서 절대 경로로 만듭니다.
+                  src={
+                    selectedMember.image.startsWith('http') || selectedMember.image.startsWith('/') 
+                      ? selectedMember.image 
+                      : `/${selectedMember.image}`
+                  } 
+                  alt={selectedMember.name} 
+                  className="w-full h-full object-cover" 
+                  referrerPolicy="no-referrer" 
+                />
+              ) : (
+                // 사진이 없을 때 표시될 기본 화면 (이름의 첫 글자)
+                <span className="text-6xl text-slate-300 font-bold">
+                  {selectedMember.name.charAt(0)}
+                </span>
+              )}
             </div>
             
             <h1 className="text-4xl font-bold text-center mb-3 text-slate-900 tracking-tight">{selectedMember.name}</h1>
