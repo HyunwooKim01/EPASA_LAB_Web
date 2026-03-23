@@ -56,7 +56,24 @@ export const LAB_DATA: LabData = {
         scholar: "#",
         linkedin: "#"
       },
-      publicationIds: ["p1", "p2"]
+      publicationIds: ["p1", "p2"],
+      // 상세 정보
+      education: [
+        {
+          degree: "Ph.D. in Computer Science",
+          institution: "University Name",
+          period: "201X - 202X"
+        },
+        {
+          degree: "B.S. in Computer Science",
+          institution: "University Name",
+          period: "201X - 201X"
+        }
+      ],
+      experience: [
+        "202X - Present: Assistant Professor, Dong-A Univ.",
+        "202X - 202X: Researcher, Example Institute"
+      ]
     },
     {
       id: "m2",
