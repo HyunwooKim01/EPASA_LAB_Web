@@ -79,7 +79,7 @@ export const LAB_DATA: LabData = {
       id: "m2",
       name: "Hyunwoo Kim",
       role: "M.S. Student",
-      image: "",
+      image: "images/graduate_student.png",
       bio: "1st year M.S. Student Dong-A Univ.",
       email: "a50935172@gmail.com",
       publicationIds: ["p1"]
@@ -88,7 +88,7 @@ export const LAB_DATA: LabData = {
       id: "m3",
       name: "Jihwan Park",
       role: "Undergraduate Resercher",
-      image: "",
+      image: "images/student.png",
       bio: "4th-year, Electronic Eng. Dong-A Univ.",
       email: ".",
       publicationIds: ["p1"]
@@ -97,7 +97,7 @@ export const LAB_DATA: LabData = {
       id: "m4",
       name: "Chaejung Lim",
       role: "Undergraduate Resercher",
-      image: "",
+      image: "images/student.png",
       bio: "3rd-year, AI. Dong-A Univ.",
       email: ".",
       publicationIds: ["p1"]
@@ -106,7 +106,7 @@ export const LAB_DATA: LabData = {
       id: "m5",
       name: "Hyuna Jeon",
       role: "Undergraduate Resercher",
-      image: "",
+      image: "images/student.png",
       bio: "3rd-year, AI. Dong-A Univ.",
       email: ".",
       publicationIds: ["p1"]
