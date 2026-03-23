@@ -98,7 +98,7 @@ export const LAB_DATA: LabData = {
       id: "m2",
       name: "Hyunwoo Kim",
       role: "M.S. Student",
-      image: "images/MSstudent_Kim.png",
+      image: "images/MSstudent_Kim.jpg",
       bio: "1st year M.S. Student Dong-A Univ.",
       email: "a50935172@gmail.com",
       publicationIds: ["p1"]
@@ -125,7 +125,7 @@ export const LAB_DATA: LabData = {
       id: "m5",
       name: "Hyuna Jeon",
       role: "Undergraduate Resercher",
-      image: "images/Researcher_Jeon.png",
+      image: "images/Researcher_Jeon.jpg",
       bio: "3rd-year, AI. Dong-A Univ.",
       email: ".",
       publicationIds: ["p1"]
