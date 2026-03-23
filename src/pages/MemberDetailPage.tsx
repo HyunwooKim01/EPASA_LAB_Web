@@ -1,9 +1,8 @@
-// pages/MemberDetailPage.tsx
 import React, { useEffect } from 'react';
 import { useParams, useNavigate, Navigate } from 'react-router-dom';
 import { motion } from 'motion/react';
-// 🌟 새롭게 사용할 아이콘(BriefcaseBusiness)을 추가했습니다.
-import { ArrowLeft, Mail, GraduationCap, Linkedin, Github, ExternalLink, ScrollText, BriefcaseBusiness } from 'lucide-react';
+// 🌟 Quote 아이콘이 맨 끝에 추가되었습니다!
+import { ArrowLeft, Mail, GraduationCap, Linkedin, Github, ExternalLink, ScrollText, BriefcaseBusiness, Quote } from 'lucide-react';
 import { Member, Publication } from '../types/lab';
 
 export default function MemberDetailPage({ members, publications }: { members: Member[], publications: Publication[] }) {
@@ -76,7 +75,17 @@ export default function MemberDetailPage({ members, publications }: { members: M
             </div>
             
             <h1 className="text-4xl font-bold text-center mb-3 text-slate-900 tracking-tight">{selectedMember.name}</h1>
-            <p className="text-2xl text-navy font-semibold text-center mb-10">{selectedMember.role}</p>
+            <p className="text-2xl text-navy font-semibold text-center mb-8">{selectedMember.role}</p>
+
+            {/* 🌟 새로 추가된 한줄 소개 (shortIntro) 박스 - 기울임꼴(italic) 적용 완료! */}
+            {selectedMember.shortIntro && (
+              <div className="w-full bg-slate-50 rounded-2xl p-5 mb-10 border border-slate-100 relative group transition-all hover:bg-navy/5 hover:border-navy/20">
+                <Quote size={24} className="text-navy/20 absolute -top-3 -left-2 transform -rotate-12 group-hover:text-navy/40 transition-colors" />
+                <p className="text-center text-slate-700 font-medium leading-relaxed italic">
+                  "{selectedMember.shortIntro}"
+                </p>
+              </div>
+            )}
 
             {/* 소셜 및 연구 링크 섹션 */}
             <div className="w-full flex justify-center space-x-5 mb-10">
