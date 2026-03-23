@@ -17,6 +17,7 @@ export interface Member {
   role: string;
   image: string;
   bio: string;
+  shortIntro?: string;
   email?: string;
   links?: {
     scholar?: string;
