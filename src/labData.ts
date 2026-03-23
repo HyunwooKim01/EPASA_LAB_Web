@@ -78,19 +78,20 @@ export const LAB_DATA: LabData = {
       ],
       career: [
         {
-          title: "Senior Researcher",
-          organization: "Tech Company",
-          period: "2018 - 202X"
+          title: "Solidigm (formerly Intel)/ SK hynix America, California, US,
+          organization: "Program Manager(Data center Engineering Group) / Director",
+          period: "2023 - 2025"
         },
         {
-          title: "Postdoctoral Fellow",
-          organization: "Research Lab",
-          period: "2014 - 2018"
+          title: "SK hynix, Bundang",
+          organization: "R&D Team Leader / NAND Solution Dev. Department",
+          period: "2014 - 2023"
+        },
+        {
+          title: "SK Inc., Seoul",
+          organization: "Chairman’s office, Seoul, Korea",
+          period: "2022"
         }
-      ],
-      experience: [
-        "202X - Present: Assistant Professor, Dong-A Univ.",
-        "202X - 202X: Researcher, Example Institute"
       ]
     },
     {
