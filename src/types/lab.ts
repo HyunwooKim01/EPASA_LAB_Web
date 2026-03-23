@@ -5,6 +5,12 @@ export interface Education {
   period: string;
 }
 
+export interface Career {
+  title: string;     
+  organization: string; 
+  period: string;     
+}
+
 export interface Member {
   id: string;
   name: string;
@@ -21,7 +27,7 @@ export interface Member {
   // 👇 새로 추가하는 항목들 (?를 붙여서 필수가 아님을 표시)
   education?: Education[];
   experience?: string[];
-  career?: string[];
+  career?: Career[];
 }
 
 export interface Publication {
