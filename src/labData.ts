@@ -2,7 +2,8 @@ import { LabData } from './types/lab';
 
 export const LAB_DATA: LabData = {
   labName: "EPASA LAB",
-  missionStatement: "Advancing the frontiers of Edge Physical AI System Architecture to bridge the gap between intelligent algorithms and physical reality.",
+  missionStatement: "Edge Physical AI Systems Architecture Lab (EPASA)
+    EPASA Lab은 현실 세계에서 자율적으로 행동하는 Edge & Physical AI 시스템을 연구합니다.",
   heroImage: "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=2070",
   researchAreas: [
     {
@@ -48,7 +49,7 @@ export const LAB_DATA: LabData = {
     {
       id: "m1",
       name: "Prof. Myeongwoon Jeon",
-      role: "Professor",
+      role: "Principal Investigator",
       image: "images/Professer_Jeon.png",
       bio: "Assistant Professor of Department of Computer Engineering/AI, Dong-A Univ.",
       email: "john.doe@university.edu",
@@ -60,15 +61,24 @@ export const LAB_DATA: LabData = {
       // 상세 정보
       education: [
         {
-          degree: "Ph.D. in Computer Science",
-          institution: "University Name",
-          period: "201X - 202X"
+          degree: "Electrical Engineering and Computer Science Ph.D",
+          institution: "Seoul National University",
+          period: "2009 - 2014"
         },
         {
-          degree: "B.S. in Computer Science",
-          institution: "University Name",
-          period: "201X - 201X"
+          degree: "Electrical Engineering and Computer Science M.S.",
+          institution: "Seoul National University",
+          period: "2007 - 2009"
+        },
+        {
+          degree: "School of Electrical Engineering, B.S",
+          institution: "Seoul National University",
+          period: "2001 - 2007"
         }
+      ],
+      career: [
+        "2018 - 202X: Senior Researcher, Tech Company",
+        "2014 - 2018: Postdoctoral Fellow, Research Lab"
       ],
       experience: [
         "202X - Present: Assistant Professor, Dong-A Univ.",
