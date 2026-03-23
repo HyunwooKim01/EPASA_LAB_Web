@@ -1,16 +1,23 @@
-import React from 'react';
+// pages/MemberDetailPage.tsx
+import React, { useEffect } from 'react';
 import { useParams, useNavigate, Navigate } from 'react-router-dom';
-import { ArrowLeft, Mail, GraduationCap, Linkedin, Github, ExternalLink } from 'lucide-react';
-import { Member, Publication } from './types/lab'; // 타입 경로 확인 필요
+import { motion } from 'motion/react';
+import { ArrowLeft, Mail, GraduationCap, Linkedin, Github, ExternalLink, ScrollText } from 'lucide-react';
+import { Member, Publication } from '../types/lab';
 
 export default function MemberDetailPage({ members, publications }: { members: Member[], publications: Publication[] }) {
-  const { id } = useParams<{ id: string }>(); // URL에서 id 추출
+  const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
 
   // id와 일치하는 멤버 찾기
   const selectedMember = members.find(m => m.id === id);
 
-  // 멤버가 없으면 메인으로 돌려보내거나 에러 처리
+  // 페이지 진입 시 스크롤을 맨 위로 이동
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [id]);
+
+  // 멤버가 없으면 메인으로
   if (!selectedMember) {
     return <Navigate to="/" replace />;
   }
@@ -22,76 +29,132 @@ export default function MemberDetailPage({ members, publications }: { members: M
   );
 
   return (
-    <div className="min-h-screen bg-slate-50 py-20 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-6xl mx-auto bg-white rounded-2xl shadow-xl overflow-hidden flex flex-col md:flex-row">
+    // 네비게이션 바 여백 pt-24
+    <div className="min-h-screen pt-24 pb-16 bg-slate-50 px-4 sm:px-6">
+      <div className="max-w-7xl mx-auto">
         
-        {/* Left Side: Profile Info */}
-        <div className="w-full md:w-2/5 bg-slate-50 p-8 flex flex-col items-center border-b md:border-b-0 md:border-r border-slate-200 relative">
-          
-          <button
-            onClick={() => navigate(-1)} // 이전 페이지로 돌아가기
-            className="self-start flex items-center text-slate-500 hover:text-navy transition-colors mb-8 font-medium"
-          >
-            <ArrowLeft size={20} className="mr-2" />
-            Back to Team
-          </button>
+        {/* 뒤로 가기 버튼 */}
+        <button
+          onClick={() => navigate('/members')} // 전체 멤버 허브로 돌아가기
+          className="flex items-center text-slate-500 hover:text-navy transition-colors mb-10 font-medium group"
+        >
+          <ArrowLeft size={20} className="mr-2 group-hover:-translate-x-1 transition-transform" />
+          Back to All Members
+        </button>
 
-          <div className="w-48 h-48 rounded-full overflow-hidden mb-6 shadow-md border-4 border-white">
-            <img src={selectedMember.image} alt={selectedMember.name} className="w-full h-full object-cover" referrerPolicy="no-referrer" />
-          </div>
-          <h3 className="text-3xl font-bold text-center mb-2 text-slate-900">{selectedMember.name}</h3>
-          <p className="text-navy font-medium text-lg text-center mb-8">{selectedMember.role}</p>
+        {/* 🌟 사용자 요청 양식: 포트폴리오처럼 상세 정보 소개 */}
+        <motion.div 
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.4 }}
+          className="grid grid-cols-1 md:grid-cols-3 gap-12"
+        >
+          {/* 왼쪽 컬럼: 핵심 프로필 및 소셜 링크 */}
+          <div className="md:col-span-1 bg-white p-8 rounded-3xl shadow-lg flex flex-col items-center border border-slate-100">
+            <div className="w-48 h-48 rounded-full overflow-hidden mb-8 shadow-xl border-4 border-white ring-4 ring-slate-100/50">
+              <img src={selectedMember.image} alt={selectedMember.name} className="w-full h-full object-cover" referrerPolicy="no-referrer" />
+            </div>
+            
+            <h1 className="text-4xl font-bold text-center mb-3 text-slate-900 tracking-tight">{selectedMember.name}</h1>
+            <p className="text-2xl text-navy font-semibold text-center mb-10">{selectedMember.role}</p>
 
-          <div className="flex space-x-4 mb-10">
-            {selectedMember.email && (
-              <a href={`mailto:${selectedMember.email}`} className="p-3 bg-white rounded-full shadow-sm text-slate-500 hover:text-navy hover:shadow-md transition-all">
-                <Mail size={22} />
-              </a>
-            )}
-            {/* ... (기존 sns 아이콘들 동일하게 삽입) ... */}
-          </div>
+            {/* 소셜 및 연구 링크 섹션 */}
+            <div className="w-full flex justify-center space-x-5 mb-10">
+              {selectedMember.email && (
+                <a href={`mailto:${selectedMember.email}`} title="Email" className="p-4 bg-white rounded-full shadow-md text-slate-500 hover:text-navy hover:shadow-lg transition-all border border-slate-100">
+                  <Mail size={24} />
+                </a>
+              )}
+              {selectedMember.links?.scholar && (
+                <a href={selectedMember.links.scholar} target="_blank" rel="noreferrer" title="Google Scholar" className="p-4 bg-white rounded-full shadow-md text-slate-500 hover:text-navy hover:shadow-lg transition-all border border-slate-100">
+                  <GraduationCap size={24} />
+                </a>
+              )}
+              {selectedMember.links?.linkedin && (
+                <a href={selectedMember.links.linkedin} target="_blank" rel="noreferrer" title="LinkedIn" className="p-4 bg-white rounded-full shadow-md text-slate-500 hover:text-navy hover:shadow-lg transition-all border border-slate-100">
+                  <Linkedin size={24} />
+                </a>
+              )}
+              {selectedMember.links?.github && (
+                <a href={selectedMember.links.github} target="_blank" rel="noreferrer" title="GitHub" className="p-4 bg-white rounded-full shadow-md text-slate-500 hover:text-navy hover:shadow-lg transition-all border border-slate-100">
+                  <Github size={24} />
+                </a>
+              )}
+            </div>
 
-          <div className="w-full text-left">
-            <h4 className="text-sm font-bold text-slate-400 uppercase tracking-wider mb-3">About</h4>
-            <p className="text-slate-600 leading-relaxed text-base whitespace-pre-line">
-              {selectedMember.bio}
-            </p>
-          </div>
-        </div>
-
-        {/* Right Side: Publications */}
-        <div className="w-full md:w-3/5 p-8 bg-white">
-          <h4 className="text-2xl font-bold text-navy mb-8 flex items-center space-x-2">
-            <span>Selected Publications</span>
-          </h4>
-          <div className="space-y-4">
-            {memberPubs.length === 0 ? (
-              <div className="text-center py-12 bg-slate-50 rounded-xl border border-dashed border-slate-200">
-                <p className="text-slate-500 italic">No publications listed yet.</p>
+            {/* Contact Information (간단 연락처) */}
+            <div className="w-full border-t border-slate-100 pt-8 mt-auto text-left">
+              <h4 className="text-sm font-bold text-slate-400 uppercase tracking-wider mb-4">Contact Info</h4>
+              <div className="space-y-3">
+                {selectedMember.email && (
+                  <p className="text-slate-700 font-medium flex items-center">
+                    <Mail size={16} className="text-slate-400 mr-2.5 flex-shrink-0" />
+                    {selectedMember.email}
+                  </p>
+                )}
+                {/* 필요시 전화번호, 연구실 번호 등 추가 가능 */}
               </div>
-            ) : (
-              memberPubs.map(pub => (
-                <div key={pub.id} className="p-5 border border-slate-100 rounded-xl hover:border-navy/30 hover:shadow-md transition-all bg-slate-50/30">
-                  <div className="flex justify-between items-start mb-3">
-                    <h5 className="font-bold text-slate-800 text-base leading-tight pr-4">{pub.title}</h5>
-                    {pub.link && (
-                      <a href={pub.link} target="_blank" rel="noreferrer" className="text-slate-400 hover:text-navy flex-shrink-0 bg-white p-2 rounded-md shadow-sm transition-colors">
-                        <ExternalLink size={16} />
-                      </a>
-                    )}
-                  </div>
-                  <p className="text-sm text-slate-600 mb-3 leading-relaxed">{pub.authors}</p>
-                  <div className="flex items-center space-x-2 text-sm text-slate-500">
-                    <span className="font-semibold text-navy">{pub.venue}</span>
-                    <span>•</span>
-                    <span>{pub.year}</span>
-                  </div>
-                </div>
-              ))
-            )}
+            </div>
           </div>
-        </div>
 
+          {/* 오른쪽 컬럼: 자기소개 및 논문 실적 */}
+          <div className="md:col-span-2 space-y-12">
+            
+            {/* 1. 간단한 자기소개 (About) */}
+            <section className="bg-white p-10 rounded-3xl shadow-lg border border-slate-100">
+              <h2 className="text-3xl font-bold text-navy mb-8 flex items-center space-x-3 border-b border-slate-100 pb-5">
+                <ScrollText size={32} className="text-navy-light mr-1" />
+                About Me
+              </h2>
+              <p className="text-slate-700 leading-relaxed text-lg whitespace-pre-line">
+                {selectedMember.bio}
+              </p>
+            </section>
+
+            {/* 2. 논문 실적 (Selected Publications) */}
+            <section className="bg-white p-10 rounded-3xl shadow-lg border border-slate-100">
+              <h2 className="text-3xl font-bold text-navy mb-8 flex items-center space-x-3 border-b border-slate-100 pb-5">
+                <ScrollText size={32} className="text-navy-light mr-1" />
+                Selected Publications
+              </h2>
+              
+              <div className="space-y-5">
+                {memberPubs.length === 0 ? (
+                  <div className="text-center py-16 bg-slate-50 rounded-2xl border-2 border-dashed border-slate-200">
+                    <p className="text-slate-500 italic text-lg">No publications listed yet.</p>
+                  </div>
+                ) : (
+                  memberPubs.map(pub => (
+                    <div key={pub.id} className="p-6 border border-slate-100 rounded-2xl hover:border-navy/30 hover:shadow-md transition-all bg-slate-50/50 flex space-x-5">
+                      {/* 출판물 아이콘 */}
+                      <div className="flex-shrink-0 w-12 h-12 rounded-xl bg-navy/5 text-navy flex items-center justify-center border border-navy/10">
+                        <ScrollText size={24} />
+                      </div>
+                      
+                      {/* 출판물 상세 정보 */}
+                      <div className="flex-grow">
+                        <div className="flex justify-between items-start mb-3">
+                          <h5 className="font-bold text-slate-800 text-lg leading-tight pr-4">{pub.title}</h5>
+                          {pub.link && (
+                            <a href={pub.link} target="_blank" rel="noreferrer" className="text-slate-400 hover:text-navy flex-shrink-0 bg-white p-2 rounded-md shadow-sm transition-colors">
+                              <ExternalLink size={18} />
+                            </a>
+                          )}
+                        </div>
+                        <p className="text-base text-slate-600 mb-3 leading-relaxed">{pub.authors}</p>
+                        <div className="flex items-center space-x-2 text-base text-slate-500">
+                          <span className="font-bold text-navy-dark">{pub.venue}</span>
+                          <span>•</span>
+                          <span>{pub.year}</span>
+                        </div>
+                      </div>
+                    </div>
+                  ))
+                )}
+              </div>
+            </section>
+          </div>
+        </motion.div>
       </div>
     </div>
   );
