@@ -13,9 +13,9 @@ import ContactSection from './components/ContactSection';
 import Footer from './components/Footer';
 
 // 페이지 컴포넌트 임포트
-import MemberDetailPage from './pages/MemberDetailPage'; 
+import MemberDetailPage from './components/MemberDetailPage'; 
 // 🌟 멤버 허브 페이지를 불러옵니다. (기존 MembersPage.tsx 파일 이름을 변경해서 사용합니다.)
-import MembersHubPage from './pages/MembersHubPage'; 
+import MembersHubPage from './components/MembersHubPage'; 
 
 export default function App() {
   return (
