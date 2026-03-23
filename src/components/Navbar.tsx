@@ -1,13 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
-import { Link, useLocation } from 'react-router-dom'; // 🌟 라우터 추가
+import { Link, useLocation } from 'react-router-dom';
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   
-  // 🌟 현재 어떤 페이지에 있는지 확인
   const location = useLocation();
   const isHomePage = location.pathname === '/';
 
@@ -17,25 +16,22 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // 🌟 링크를 라우터 경로에 맞게 변경
-  // 다른 페이지에서 메인 페이지의 특정 섹션으로 갈 수 있도록 '/'와 '#'을 조합합니다.
+  // 🌟 스크롤용 '#'을 모두 지우고, 완벽한 페이지 주소로 변경했습니다.
   const navLinks = [
     { name: 'Home', path: '/' },
-    { name: 'Research', path: '/#research' },
-    { name: 'Publications', path: '/#publications' },
-    { name: 'Members', path: '/members' }, // 멤버 페이지
-    { name: 'Projects', path: '/#projects' },
-    { name: 'Contact', path: '/#contact' },
+    { name: 'Research', path: '/research' },
+    { name: 'Publications', path: '/publications' },
+    { name: 'Members', path: '/members' },
+    { name: 'Projects', path: '/projects' },
+    { name: 'Contact', path: '/contact' },
   ];
 
-  // 메인 페이지가 아니면(예: Members 페이지) 항상 스크롤된 것처럼 흰색 배경/어두운 글씨 적용
   const applyScrolledStyle = isScrolled || !isHomePage;
 
   return (
     <nav className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${applyScrolledStyle ? 'bg-white shadow-md py-3' : 'bg-transparent py-5'}`}>
       <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
         
-        {/* 로고 클릭 시 메인으로 */}
         <Link to="/" className={`text-2xl font-bold tracking-tighter ${applyScrolledStyle ? 'text-navy' : 'text-white'}`}>
           EPASA <span className="font-light">LAB</span>
         </Link>
