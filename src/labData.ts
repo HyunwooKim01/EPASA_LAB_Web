@@ -25,6 +25,50 @@ export const LAB_DATA: LabData = {
       icon: "Cpu" // 연산/최적화를 상징하는 아이콘
     }
   ],
+  detailedResearch: [
+    {
+      topic: "Research Topic #1 : Embedded AI",
+      subTopics: [
+        {
+          title: "Physical AI를 위한 임베디드 시스템 연구",
+          descriptions: [
+            "스마트팩토리, 로봇 등 Physical AI 응용 환경에 적합한 저장장치 및 임베디드 시스템 구조 설계\n→ 저지연·고신뢰·저전력 동작을 위한 실시간 제어 중심의 아키텍처 구현",
+            "엣지 디바이스의 연속적 센서 데이터 처리에 최적화된 로컬 저장 및 처리 구조 개발\n→ 제한된 전력/공간 조건에서의 고신뢰성 데이터 기록 및 오류 복구 알고리즘 포함",
+            "AI 모델 경량화 및 실시간 추론이 가능한 엣지형 임베디드 시스템 및 Architecture 연구"
+          ]
+        },
+        {
+          title: "AI × Embedded Systems 융합 기술의 산업 적용 연구",
+          descriptions: [
+            "임베디드 시스템과 경량 AI 기술을 융합하여, 공정 자동화, 품질 검사 등 산업 현장의 실질적인 문제를 해결할 수 있는 기술 개발",
+            "센서 기반 임베디드 디바이스 + 소형 AI 모델로 실시간 분석·처리하는 시스템으로 구현",
+            "제한된 전력·연산 자원 환경에서도 안정적으로 동작 가능한 저전력 AI 추론 엔진, 신뢰성 있는 로컬 저장 및 처리 구조를 설계\n→ AI 도입이 어려운 중소기업 및 전통 제조업체과 산학협력 과제, 기술이전 연계"
+          ]
+        }
+      ]
+    },
+    {
+      topic: "Research Topic #2 : Sys.Archi for AI",
+      subTopics: [
+        {
+          title: "AI 워크로드 기반 System Architecture 연구",
+          descriptions: [
+            "Generative AI 및 RAG 시스템의 고속·대용량 데이터 입출력 요구에 맞춘 스토리지 아키텍처 최적화\n→ 읽기 집중형 I/O 패턴, 벡터 검색, 대용량 모델 호출 등에 특화된 구조 설계",
+            "대규모 모델 학습·추론 환경에서의 지연 최소화 및 대역폭 극대화를 위한 계층 구조 분석 및 설계",
+            "SSD 내부 데이터 흐름과 제어 경로 최적화, AI 연산의 효율성과 메모리/저장 계층 설계 문제를 통합적으로 해결"
+          ]
+        },
+        {
+          title: "Computational SSD 및 지능형 컨트롤러 연구",
+          descriptions: [
+            "연산 기능을 저장장치 내부로 통합하는 Computational Storage 구조 연구\n→ 데이터 이동 없이 저장장치 내에서 처리하여 시스템 병목과 에너지 소비를 줄이는 구조 설계",
+            "벡터 인덱싱, 압축, LLM 추론 등 반복적인 연산을 컨트롤러 수준에서 처리하는 로직 개발\n→ 기존 호스트 연산 대비 I/O 병목 완화 및 응답 지연 최소화",
+            "SSD 내부에 AI inference engine 또는 경량화된 AI 모델을 내장하는 구조 검토"
+          ]
+        }
+      ]
+    }
+  ],
   publications: [
     // 🌟 International Journal Papers
     {
