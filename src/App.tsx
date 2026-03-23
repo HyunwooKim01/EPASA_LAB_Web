@@ -109,8 +109,18 @@ export default function App() {
             />
 
             {/* 3. Research 페이지 (상세) */}
-            <Route path="/research" element={<div className="pt-24 pb-12"><ResearchSection areas={LAB_DATA.researchAreas} /></div>} />
-
+            <Route 
+              path="/research" 
+              element={
+                <div className="pt-24 pb-12">
+                  <ResearchSection 
+                    areas={LAB_DATA.researchAreas} 
+                    details={LAB_DATA.detailedResearch} 
+                  />
+                </div>
+              } 
+            />
+            
             {/* 4. Publications 페이지 */}
             <Route path="/publications" element={<div className="pt-24 pb-12"><PublicationsSection publications={LAB_DATA.publications} /></div>} />
 
