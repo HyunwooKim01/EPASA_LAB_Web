@@ -13,6 +13,7 @@ import ProjectsSection from './components/ProjectsSection';
 import ContactSection from './components/ContactSection';
 import Footer from './components/Footer';
 import MemberDetailPage from './components/MemberDetailPage'; 
+import MembersPage from './components/MembersPage';
 
 export default function App() {
   return (
@@ -47,7 +48,7 @@ export default function App() {
                       </div>
                     </div>
                   </section>
-
+                  
                   <ResearchSection areas={LAB_DATA.researchAreas} />
                   <PublicationsSection publications={LAB_DATA.publications} />
                   <MembersSection members={LAB_DATA.members} publications={LAB_DATA.publications} />
@@ -57,7 +58,18 @@ export default function App() {
               } 
             />
 
-            {/* 2. 멤버 상세 페이지 라우트 */}
+            {/* 2. 전체 멤버 소개 페이지 (Navbar에서 클릭 시 이동) */}
+            <Route 
+              path="/members" 
+              element={
+                <MembersPage 
+                  members={LAB_DATA.members} 
+                  publications={LAB_DATA.publications} 
+                />
+              } 
+            />  
+            
+            {/* 3. 특정 멤버 상세 페이지 (멤버 카드 클릭 시 이동) */}
             <Route 
               path="/members/:id" 
               element={
