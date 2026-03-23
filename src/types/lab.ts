@@ -1,3 +1,10 @@
+// 👇 새로 추가하는 Education 양식
+export interface Education {
+  degree: string;
+  institution: string;
+  period: string;
+}
+
 export interface Member {
   id: string;
   name: string;
@@ -11,6 +18,9 @@ export interface Member {
     github?: string;
   };
   publicationIds?: string[];
+  // 👇 새로 추가하는 항목들 (?를 붙여서 필수가 아님을 표시)
+  education?: Education[];
+  experience?: string[];
 }
 
 export interface Publication {
