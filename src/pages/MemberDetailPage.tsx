@@ -157,37 +157,25 @@ export default function MemberDetailPage({ members, publications }: { members: M
               </section>
             )}
 
-            {/* 🌟 3. 경력 (Experience / Career) - 세련된 타임라인 양식 */}
-            {/* labData.ts에서 experience 또는 career 둘 중 하나라도 작성되어 있으면 이 섹션이 표시됩니다. */}
-            {((selectedMember.experience && selectedMember.experience.length > 0) || 
-              (selectedMember.career && selectedMember.career.length > 0)) && (
+            {/* 🌟 3. Career 섹션 - 객체 데이터를 사용하는 타임라인 */}
+            {selectedMember.career && selectedMember.career.length > 0 && (
               <section className="bg-white p-10 rounded-3xl shadow-lg border border-slate-100">
                 <h2 className="text-3xl font-bold text-navy mb-10 flex items-center space-x-3 border-b border-slate-100 pb-5">
                   <BriefcaseBusiness size={32} className="text-navy-light mr-1" />
-                  Career & Experience
+                  Career
                 </h2>
                 
-                {/* 타임라인 세로선 컨테이너 */}
                 <div className="relative border-l-2 border-slate-200 ml-4 space-y-10">
-                  
-                  {/* Career 데이터 배열과 Experience 데이터 배열을 하나로 합쳐서 보여줍니다. */}
-                  {[...(selectedMember.career || []), ...(selectedMember.experience || [])].map((item, index) => {
-                    // "2018 - 202X: Senior Researcher" 문자열을 콜론(:) 기준으로 분리하여 디자인을 입힙니다.
-                    const parts = item.split(':');
-                    const period = parts.length > 1 ? parts[0].trim() : '';
-                    const detail = parts.length > 1 ? parts.slice(1).join(':').trim() : item;
-
-                    return (
-                      <div key={index} className="relative pl-8 group">
-                        {/* 타임라인 동그라미 포인트 */}
-                        <span className="absolute -left-[9px] top-1.5 w-4 h-4 bg-white border-4 border-slate-300 rounded-full shadow-sm group-hover:border-navy transition-colors duration-300"></span>
-                        
-                        {/* 기간이 있는 경우 날짜를 강조해서 보여주고, 내용은 굵게 표시합니다. */}
-                        {period && <p className="text-sm font-bold text-navy-light mb-1.5 tracking-wide">{period}</p>}
-                        <h3 className="text-lg font-bold text-slate-800 leading-relaxed">{detail}</h3>
-                      </div>
-                    );
-                  })}
+                  {selectedMember.career.map((car, index) => (
+                    <div key={index} className="relative pl-8 group">
+                      <span className="absolute -left-[9px] top-1.5 w-4 h-4 bg-white border-4 border-slate-300 rounded-full shadow-sm group-hover:border-navy transition-colors duration-300"></span>
+                      
+                      {/* 객체에서 바로 꺼내서 사용하므로 명확합니다. */}
+                      <p className="text-sm font-bold text-navy-light mb-1.5 tracking-wide">{car.period}</p>
+                      <h3 className="text-xl font-bold text-slate-900 mb-1">{car.title}</h3>
+                      <p className="text-base text-slate-600 font-medium">{car.organization}</p>
+                    </div>
+                  ))}
                 </div>
               </section>
             )}
