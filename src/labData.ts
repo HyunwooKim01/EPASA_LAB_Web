@@ -78,7 +78,7 @@ export const LAB_DATA: LabData = {
       ],
       career: [
         {
-          title: "Solidigm (formerly Intel)/ SK hynix America, California, US,
+          title: "Solidigm (formerly Intel)/ SK hynix America, California, US",
           organization: "Program Manager(Data center Engineering Group) / Director",
           period: "2023 - 2025"
         },
