@@ -1,4 +1,5 @@
 import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { Calendar } from 'lucide-react';
 import { LAB_DATA } from './labData';
 
@@ -12,40 +13,68 @@ import ProjectsSection from './components/ProjectsSection';
 import ContactSection from './components/ContactSection';
 import Footer from './components/Footer';
 
+// 🌟 새로 만든 상세 페이지 컴포넌트를 불러옵니다 (경로는 실제 파일 위치에 맞게 수정하세요)
+import MemberDetailPage from './pages/MemberDetailPage'; 
+
 export default function App() {
   return (
-    <div className="min-h-screen">
-      <Navbar />
-      
-      <main>
-        <Hero data={LAB_DATA} />
+    <Router>
+      <div className="min-h-screen">
+        {/* Navbar는 모든 페이지에서 상단에 유지됩니다 */}
+        <Navbar />
         
-        <section className="py-12 bg-white border-b border-slate-100">
-          <div className="max-w-7xl mx-auto px-6">
-            <div className="flex items-center space-x-4 overflow-x-auto pb-4 scrollbar-hide">
-              <div className="flex-shrink-0 flex items-center space-x-2 px-4 py-2 bg-navy/5 text-navy rounded-full font-bold text-sm">
-                <Calendar size={16} />
-                <span>LATEST NEWS</span>
-              </div>
-              {LAB_DATA.news.map(item => (
-                <div key={item.id} className="flex-shrink-0 flex items-center space-x-3 text-sm">
-                  <span className="text-slate-400 font-mono">{item.date}</span>
-                  <span className="text-slate-700 font-medium">{item.content}</span>
-                  <span className="text-slate-200">|</span>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
+        <main>
+          <Routes>
+            {/* 1. 메인 페이지 (기존에 있던 모든 내용) */}
+            <Route 
+              path="/" 
+              element={
+                <>
+                  <Hero data={LAB_DATA} />
+                  
+                  <section className="py-12 bg-white border-b border-slate-100">
+                    <div className="max-w-7xl mx-auto px-6">
+                      <div className="flex items-center space-x-4 overflow-x-auto pb-4 scrollbar-hide">
+                        <div className="flex-shrink-0 flex items-center space-x-2 px-4 py-2 bg-navy/5 text-navy rounded-full font-bold text-sm">
+                          <Calendar size={16} />
+                          <span>LATEST NEWS</span>
+                        </div>
+                        {LAB_DATA.news.map(item => (
+                          <div key={item.id} className="flex-shrink-0 flex items-center space-x-3 text-sm">
+                            <span className="text-slate-400 font-mono">{item.date}</span>
+                            <span className="text-slate-700 font-medium">{item.content}</span>
+                            <span className="text-slate-200">|</span>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  </section>
 
-        <ResearchSection areas={LAB_DATA.researchAreas} />
-        <PublicationsSection publications={LAB_DATA.publications} />
-        <MembersSection members={LAB_DATA.members} publications={LAB_DATA.publications} />
-        <ProjectsSection projects={LAB_DATA.projects} />
-        <ContactSection data={LAB_DATA} />
-      </main>
+                  <ResearchSection areas={LAB_DATA.researchAreas} />
+                  <PublicationsSection publications={LAB_DATA.publications} />
+                  <MembersSection members={LAB_DATA.members} publications={LAB_DATA.publications} />
+                  <ProjectsSection projects={LAB_DATA.projects} />
+                  <ContactSection data={LAB_DATA} />
+                </>
+              } 
+            />
 
-      <Footer data={LAB_DATA} />
-    </div>
+            {/* 2. 멤버 상세 페이지 라우트 */}
+            <Route 
+              path="/members/:id" 
+              element={
+                <MemberDetailPage 
+                  members={LAB_DATA.members} 
+                  publications={LAB_DATA.publications} 
+                />
+              } 
+            />
+          </Routes>
+        </main>
+
+        {/* Footer도 모든 페이지에서 하단에 유지됩니다 */}
+        <Footer data={LAB_DATA} />
+      </div>
+    </Router>
   );
 }
