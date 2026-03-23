@@ -47,10 +47,10 @@ export const LAB_DATA: LabData = {
   members: [
     {
       id: "m1",
-      name: "Prof. John Doe",
-      role: "Principal Investigator",
-      image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=400",
-      bio: "Expert in computer architecture and edge intelligence.",
+      name: "Prof. Myeongwoon Jeon",
+      role: "Dong-A University Assistant Professor",
+      image: "",
+      bio: "Assistant Professor of Department of Computer Engineering/AI, Dong-A Univ.",
       email: "john.doe@university.edu",
       links: {
         scholar: "#",
@@ -60,11 +60,38 @@ export const LAB_DATA: LabData = {
     },
     {
       id: "m2",
-      name: "Sarah Smith",
-      role: "Ph.D. Student",
-      image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&q=80&w=400",
-      bio: "Focusing on hardware acceleration for deep learning.",
-      email: "sarah.s@university.edu",
+      name: "Hyunwoo Kim",
+      role: "M.S. Student",
+      image: "",
+      bio: "1st year M.S. Student Dong-A Univ.",
+      email: "a50935172@gmail.com",
+      publicationIds: ["p1"]
+    },
+    {
+      id: "m3",
+      name: "Jihwan Park",
+      role: "Undergraduate Resercher",
+      image: "",
+      bio: "4th-year, Electronic Eng. Dong-A Univ.",
+      email: ".",
+      publicationIds: ["p1"]
+    },
+    {
+      id: "m4",
+      name: "Chaejung Lim",
+      role: "Undergraduate Resercher",
+      image: "",
+      bio: "3rd-year, AI. Dong-A Univ.",
+      email: ".",
+      publicationIds: ["p1"]
+    },
+    {
+      id: "m5",
+      name: "Hyuna Jeon",
+      role: "Undergraduate Resercher",
+      image: "",
+      bio: "3rd-year, AI. Dong-A Univ.",
+      email: ".",
       publicationIds: ["p1"]
     }
   ],
