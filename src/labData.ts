@@ -8,21 +8,21 @@ export const LAB_DATA: LabData = {
   researchAreas: [
     {
       id: "ra1",
-      title: "Edge Computing",
-      description: "Optimizing AI workloads for resource-constrained edge devices with low latency and high efficiency.",
-      icon: "Cpu"
+      title: "Embedded AI",
+      description: "스마트팩토리, 로봇 등 Physical AI 환경에 적합한 저지연·고신뢰·저전력 임베디드 시스템 및 센서 융합 구조를 설계하고 산업 적용을 연구합니다.",
+      icon: "Bot" // 로봇/물리적 AI를 상징하는 아이콘
     },
     {
       id: "ra2",
-      title: "Physical AI",
-      description: "Integrating AI with physical systems, focusing on robotics, sensing, and real-world interaction.",
-      icon: "Bot"
+      title: "System Architecture for AI",
+      description: "Generative AI 및 RAG 시스템의 고속 데이터 처리를 위한 스토리지 아키텍처를 최적화하고, 대규모 모델 학습·추론을 위한 계층 구조를 설계합니다.",
+      icon: "Layers" // 아키텍처/계층 구조를 상징하는 아이콘
     },
     {
       id: "ra3",
-      title: "System Architecture",
-      description: "Designing novel hardware-software co-designed architectures for next-generation AI systems.",
-      icon: "Layers"
+      title: "Computational SSD & Optimization",
+      description: "데이터 이동 없이 저장장치 내에서 연산을 처리하는 지능형 컨트롤러(Computational Storage)와 엣지 환경을 위한 AI 모델 경량화를 연구합니다.",
+      icon: "Cpu" // 연산/최적화를 상징하는 아이콘
     }
   ],
   publications: [
@@ -227,7 +227,7 @@ export const LAB_DATA: LabData = {
       role: "M.S. Student",
       image: "images/MSstudent_Kim.jpg",
       bio: "1st year M.S. Student Dong-A Univ.",
-      email: "a50935172@gmail.com",
+      email: "2671530@donga.ac.kr",
       publicationIds: ["p1"]
     },
     {
@@ -243,6 +243,7 @@ export const LAB_DATA: LabData = {
       id: "m4",
       name: "Chaejung Lim",
       role: "Undergraduate Resercher",
+      shortIntro: "좋은 연구자가 되기 위해 최선을 다하겠습니다.",
       image: "images/student.png",
       bio: "3rd-year, AI. Dong-A Univ.",
       email: "a01042920043@gmail.com",
@@ -250,26 +251,26 @@ export const LAB_DATA: LabData = {
     },
     {
       id: "m5",
-      name: "Hyuna Jeon",
+      name: "HyeonA Jeon",
       role: "Undergraduate Resercher",
       image: "images/Researcher_Jeon.jpg",
       bio: "3rd-year, AI. Dong-A Univ.",
-      email: ".",
+      email: "2443636@donga.ac.kr",
       publicationIds: ["p1"]
     }
   ],
   projects: [
     {
       id: "pr1",
-      title: "Project NeuroEdge",
-      description: "Developing a decentralized edge computing framework for autonomous drone swarms.",
+      title: "예시 과제",
+      description: "진행 중 과제",
       image: "https://images.unsplash.com/photo-1508614589041-895b88991e3e?auto=format&fit=crop&q=80&w=800",
       status: "ongoing"
     },
     {
       id: "pr2",
-      title: "EcoArch",
-      description: "Energy-efficient architecture for long-term environmental monitoring sensors.",
+      title: "예시 과제",
+      description: "완료 된 과제",
       image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=800",
       status: "completed"
     }
@@ -287,9 +288,9 @@ export const LAB_DATA: LabData = {
     }
   ],
   contact: {
-    address: "123 Science Road, Engineering Building #405, Innovation City",
-    email: "contact@epasa-lab.org",
-    phone: "+82-2-1234-5678",
-    mapUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3162.2848242337813!2d126.9703453!3d37.5666103!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357ca2f3323a16af%3A0x83130309331f08d2!2sSeoul%20City%20Hall!5e0!3m2!1sen!2skr!4v1709420000000!5m2!1sen!2skr"
+    address: "부산광역시 사하구 낙동대로550번길 37(하단동) 동아대학교 승학캠퍼스 공대5호관 S06-627",
+    email: "mwjeon@dau.ac.kr",
+    phone: "+82 10-8628-2344",
+    mapUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1372.1734817161957!2d128.96765523132188!3d35.116774320740646!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3568c25d14c1764f%3A0x9f345b4d72a391e7!2z64-Z7JWE64yA7ZWZ6rWQIOyKue2Vmey6oO2NvOyKpA!5e0!3m2!1sko!2skr!4v1774276862427!5m2!1sko!2skr"
   }
 };
