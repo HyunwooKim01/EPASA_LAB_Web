@@ -10,6 +10,7 @@ export interface Member {
     linkedin?: string;
     github?: string;
   };
+  publicationIds?: string[];
 }
 
 export interface Publication {
