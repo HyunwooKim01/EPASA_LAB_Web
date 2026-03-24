@@ -321,13 +321,13 @@ export const LAB_DATA: LabData = {
   news: [
     {
       id: "n1",
-      date: "2024-03-01",
-      content: "EPASA LAB receives research grant for Edge AI optimization."
+      date: "2026-02-23",
+      content: "First Lab Meeting!!."
     },
     {
       id: "n2",
       date: "2024-02-15",
-      content: "New paper accepted at CVPR 2024. Congratulations to the team!"
+      content: "example"
     }
   ],
   contact: {
