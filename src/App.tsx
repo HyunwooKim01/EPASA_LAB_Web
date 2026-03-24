@@ -61,7 +61,11 @@ export default function App() {
                   </section>
 
                   {/* 핵심 연구 분야 미리보기 */}
-                  <ResearchSection areas={LAB_DATA.researchAreas} />
+                  <ResearchSection 
+                    areas={LAB_DATA.researchAreas} 
+                    // 🌟👇 이 줄을 꼭 추가해야 메인 화면에서도 상세 내용이 보입니다! 👇🌟
+                    details={LAB_DATA.detailedResearch} 
+                  />
 
                   {/* 다른 페이지 바로가기 카드 */}
                   <section className="py-24 bg-white border-t border-slate-100">
