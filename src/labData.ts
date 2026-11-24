@@ -76,7 +76,8 @@ export const LAB_DATA: LabData = {
       authors: "Myeongwoon Jeon, Kyungchul Kim, Sungkyu Chung, Seungjae Chung, Beomju Shin, Jungwoo Lee",
       venue: "IEICE Transactions Fundamentals of Electronics, Communications and Computer Sciences",
       year: 2011,
-      tags: ["Journal", "Memory Devices"]
+      category: "intl-journal",
+      tags: ["Memory Devices"]
     },
     {
       id: "j2",
@@ -84,7 +85,8 @@ export const LAB_DATA: LabData = {
       authors: "Myeongwoon Jeon, Jungwoo Lee",
       venue: "IEICE Transactions on Fundamentals of Electronics, Communications and Computer Sciences",
       year: 2013,
-      tags: ["Journal", "Flash Memory"]
+      category: "intl-journal",
+      tags: ["Flash Memory"]
     },
 
     // 🌟 International Conferences
@@ -94,7 +96,8 @@ export const LAB_DATA: LabData = {
       authors: "Myeongwoon Jeon, Jungwoo Lee",
       venue: "IEEE Vehicular Technology Conference (Anchorage, USA)",
       year: 2009,
-      tags: ["Conference", "Decoding"]
+      category: "intl-conference",
+      tags: ["Decoding"]
     },
     {
       id: "c2",
@@ -102,7 +105,8 @@ export const LAB_DATA: LabData = {
       authors: "Myeongwoon Jeon, Kyungchul Kim, Beomju Shin, Jungwoo Lee",
       venue: "IEEE Midwest Symposium on Circuits and Systems (Seoul, Korea)",
       year: 2011,
-      tags: ["Conference", "Flash Memory"]
+      category: "intl-conference",
+      tags: ["Flash Memory"]
     },
     {
       id: "c3",
@@ -110,7 +114,8 @@ export const LAB_DATA: LabData = {
       authors: "Myeongwoon Jeon, Kyungchul Kim, Beomju Shin, Jungwoo Lee",
       venue: "IEEE Midwest Symposium on Circuits and Systems (Boise, USA)",
       year: 2012,
-      tags: ["Conference", "Flash Memory"]
+      category: "intl-conference",
+      tags: ["Flash Memory"]
     },
     {
       id: "c4",
@@ -118,15 +123,17 @@ export const LAB_DATA: LabData = {
       authors: "Myeongwoon Jeon, Sungkyoo Chung, Beomju Shin, Jungwoo Lee",
       venue: "IEEE Workshop on Signal Processing Systems (Quebec, Canada)",
       year: 2012,
-      tags: ["Conference", "Signal Processing"]
+      category: "intl-conference",
+      tags: ["Signal Processing"]
     },
     {
       id: "c5",
-      title: "On codes correcting bidirectional limited-magnitued errors for flash memories",
+      title: "On codes correcting bidirectional limited-magnitude errors for flash memories",
       authors: "Myeongwoon Jeon, Jungwoo Lee",
       venue: "International Symposium on Information Theory and Its Applications (Honolulu, USA)",
       year: 2012,
-      tags: ["Conference", "Flash Memory"]
+      category: "intl-conference",
+      tags: ["Flash Memory"]
     },
     {
       id: "c6",
@@ -134,7 +141,8 @@ export const LAB_DATA: LabData = {
       authors: "Myeongwoon Jeon, Jungwoo Lee",
       venue: "Non-volatile Memories Workshop (San Diego, USA)",
       year: 2013,
-      tags: ["Conference", "Flash Memory"]
+      category: "intl-conference",
+      tags: ["Flash Memory"]
     },
 
     // 🌟 US Patents
@@ -144,8 +152,9 @@ export const LAB_DATA: LabData = {
       authors: "Myeongwoon Jeon",
       venue: "US Patent",
       year: 2021,
+      category: "patent",
       link: "https://patents.google.com/patent/US11189350",
-      tags: ["Patent"]
+      tags: []
     },
     {
       id: "pat2",
@@ -153,8 +162,9 @@ export const LAB_DATA: LabData = {
       authors: "Myeongwoon Jeon",
       venue: "US Patent",
       year: 2021,
+      category: "patent",
       link: "https://patents.google.com/patent/US10916301",
-      tags: ["Patent"]
+      tags: []
     },
     {
       id: "pat3",
@@ -162,8 +172,9 @@ export const LAB_DATA: LabData = {
       authors: "Myeongwoon Jeon",
       venue: "US Patent",
       year: 2018,
+      category: "patent",
       link: "https://patents.google.com/patent/US10001952",
-      tags: ["Patent"]
+      tags: []
     },
     {
       id: "pat4",
@@ -171,8 +182,9 @@ export const LAB_DATA: LabData = {
       authors: "Myeongwoon Jeon",
       venue: "US Patent",
       year: 2017,
+      category: "patent",
       link: "https://patents.google.com/patent/US9741402",
-      tags: ["Patent"]
+      tags: []
     },
     {
       id: "pat5",
@@ -180,8 +192,9 @@ export const LAB_DATA: LabData = {
       authors: "Myeongwoon Jeon",
       venue: "US Patent",
       year: 2017,
+      category: "patent",
       link: "https://patents.google.com/patent/US9575833",
-      tags: ["Patent"]
+      tags: []
     },
     {
       id: "pat6",
@@ -189,8 +202,9 @@ export const LAB_DATA: LabData = {
       authors: "Myeongwoon Jeon",
       venue: "US Patent",
       year: 2016,
+      category: "patent",
       link: "https://patents.google.com/patent/US9473171",
-      tags: ["Patent"]
+      tags: []
     },
     {
       id: "pat7",
@@ -198,8 +212,9 @@ export const LAB_DATA: LabData = {
       authors: "Jae Yoon Lee, Hyung Min Lee, Myeong Woon Jeon",
       venue: "US Patent",
       year: 2017,
+      category: "patent",
       link: "https://patents.google.com/patent/US9570189B1",
-      tags: ["Patent"]
+      tags: []
     },
     {
       id: "pat8",
@@ -207,8 +222,9 @@ export const LAB_DATA: LabData = {
       authors: "Hyung Min Lee, Jae Yoon Lee, Myeong Woon Jeon",
       venue: "US Patent",
       year: 2020,
+      category: "patent",
       link: "https://patents.google.com/patent/US10623025",
-      tags: ["Patent"]
+      tags: []
     }
   ],
   members: [
@@ -276,7 +292,7 @@ export const LAB_DATA: LabData = {
     {
       id: "m3",
       name: "Jihwan Park",
-      role: "Undergraduate Resercher",
+      role: "Undergraduate Researcher",
       image: "images/student.png",
       bio: "4th-year, Electronic Eng. Dong-A Univ.",
       email: ".",
@@ -285,7 +301,7 @@ export const LAB_DATA: LabData = {
     {
       id: "m4",
       name: "Chaejung Lim",
-      role: "Undergraduate Resercher",
+      role: "Undergraduate Researcher",
       shortIntro: "좋은 연구자가 되기 위해 최선을 다하겠습니다.",
       image: "images/student.png",
       bio: "3rd-year, AI. Dong-A Univ.",
@@ -295,7 +311,7 @@ export const LAB_DATA: LabData = {
     {
       id: "m5",
       name: "HyeonA Jeon",
-      role: "Undergraduate Resercher",
+      role: "Undergraduate Researcher",
       image: "images/Researcher_Jeon.jpg",
       bio: "3rd-year, AI. Dong-A Univ.",
       email: "2443636@donga.ac.kr",
