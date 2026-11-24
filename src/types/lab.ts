@@ -31,12 +31,19 @@ export interface Member {
   career?: Career[];
 }
 
+export type PublicationCategory =
+  | 'intl-journal'
+  | 'intl-conference'
+  | 'domestic-journal'
+  | 'domestic-conference';
+
 export interface Publication {
   id: string;
   title: string;
   authors: string;
   venue: string;
   year: number;
+  category: PublicationCategory; // 👈 추가
   link?: string;
   tags: string[];
 }
