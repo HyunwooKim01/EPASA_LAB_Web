@@ -35,7 +35,8 @@ export type PublicationCategory =
   | 'intl-journal'
   | 'intl-conference'
   | 'domestic-journal'
-  | 'domestic-conference';
+  | 'domestic-conference'
+  | 'patent';
 
 export interface Publication {
   id: string;
